@@ -1,0 +1,75 @@
+---
+title: "Analisis"
+author: "Melina"
+date: "2023-05-14"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Librerías
+
+```{r}
+library(tidyverse)
+library(readr)
+library(readxl)
+library(haven)
+library(janitor)
+```
+
+
+## Lectura de datos
+
+```{r}
+cba <- read_sav("data/CORDOBA_FINAL.sav")
+gba <- read_sav("data/GBA_FINAL.sav")
+
+#Datos sociodemográficos
+edad <- read_excel("data/Sociodemograficos.xlsx", sheet = "Edad")
+nivel_educativo <- read_excel("data/Sociodemograficos.xlsx", sheet = "Nivel_educativo")
+sexo <- read_excel("data/Sociodemograficos.xlsx", sheet = "Sexo")
+
+```
+
+## Se muestra una versión preliminar de las primeras filas de los DF
+
+```{r}
+head(cba)
+```
+```{r}
+head(gba)
+```
+
+
+## Se reemplazan los values por labels
+```{r}
+
+cba_cuali<-cba%>%
+  mutate(across(!UA, as_factor))
+
+gba_cuali <- gba %>% mutate(across(!UA, as_factor))
+
+```
+
+## Exploración de datos
+
+En primera instancia, se indaga la decisión de voto de los encuestados si al día de la fecha transcurrieran las elecciones. 
+```{r}
+
+cba_cuali %>% tabyl(VOTO_CANDIDATO, sort = TRUE) %>% adorn_pct_formatting() %>% adorn_totals()
+
+
+# First a tabyl with proportions, Ns and totals
+tabyl(df, var1, sex) %>%
+  adorn_totals(where = c("col", "row")) %>%
+  adorn_percentages("col") %>%
+  adorn_pct_formatting(digits = 0) %>%
+  adorn_ns(position = "front")
+
+```
+
+
+
+
