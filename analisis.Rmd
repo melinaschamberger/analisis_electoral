@@ -81,7 +81,7 @@ cba_cuali %>% tabyl(VOTO_CANDIDATO, JAMAS_VOTARIA) %>% adorn_percentages('row') 
   adorn_pct_formatting()
 ```
 
-Se observa que entre quienes eligen votar a Daniel Scioli, el 85% jamás votaría a Mauricio Macri y un 8% jamás votaría a Sergio Massa. Por el contrario, entre quienes votan por Mauricio Macri, un 93% jamás votaría a Daniel Scioli y un 3% jamás eligiría a Sergio Massa. En el caso de los electores del Massismo, se advierte que un 84% jamás votaría a Daniel Scioli y un 9% jamás eligiría a Mauricio Macri. 
+Se observa que entre quienes eligen votar a Daniel Scioli, el 85% jamás votaría a Mauricio Macri. Por el contrario, entre quienes votan por Mauricio Macri, un 93% jamás votaría a Daniel Scioli.
 
 ```{r}
 cba_cuali %>% tabyl(VOTO_CANDIDATO, JAMAS_VOTARIA) %>% adorn_percentages('all')  %>% 
@@ -97,7 +97,7 @@ Al considerar las distribuciones totales, se encuentra que el 20% de los encuest
 gba_cuali %>% tabyl(VOTO_CANDIDATO, sort = TRUE) %>% adorn_pct_formatting() %>% arrange(desc(n)) %>% adorn_totals()
 
 ```
-Se observa que el **38% encuestados votaría por Daniel Scioli**, en **segundo lugar se encuentra Mauricio Macri con un 30% y seguidamente se ubica Sergio Massa con el 21% de los votos**. 
+Se observa que el **38% encuestados votaría por Daniel Scioli**, en **segundo lugar se encuentra Mauricio Macri con un 30%**. 
 
 Se observan los techos electorales: 
 
@@ -114,13 +114,20 @@ gba_cuali %>% tabyl(VOTO_CANDIDATO, JAMAS_VOTARIA) %>% adorn_percentages('row') 
   adorn_pct_formatting()
 ```
 
-Se observa que entre quienes eligen votar a Daniel Scioli, el 81% jamás votaría a Mauricio Macri y un 8% jamás votaría a Sergio Massa. Por el contrario, entre quienes votan por Mauricio Macri, un 86% jamás votaría a Daniel Scioli y un 4% jamás eligiría a Sergio Massa. En el caso de los electores del Massismo, se advierte que un 65% jamás votaría a Daniel Scioli y un 24% jamás eligiría a Mauricio Macri. 
+Se observa que entre quienes eligen votar a Daniel Scioli, el 81% jamás votaría a Mauricio Macri y un 8% jamás votaría a Sergio Massa. Por el contrario, entre quienes votan por Mauricio Macri, un 86% jamás votaría a Daniel Scioli y un 4% jamás eligiría a Sergio Massa. 
 
 ```{r}
 gba_cuali %>% tabyl(VOTO_CANDIDATO, JAMAS_VOTARIA) %>% adorn_percentages('all')  %>% 
   adorn_pct_formatting()
 ```
 
-Al considerar las distribuciones totales, se encuentra que el 20% de los encuestados nunca votarían por Macri y eligen por candidato a Scioli; mientras que el 43% de los que eligen a Mauricio Macri nunca votarían a Daniel Scioli. 
+Al considerar las distribuciones totales, se encuentra que el 31% de los encuestados nunca votarían por Macri y eligen por candidato a Scioli; mientras que el 26% de los que eligen a Mauricio Macri nunca votarían a Daniel Scioli. 
 
+### Análisis comparativo: GBA y Córdoba
 
+ver 
+
+```{r}
+cba_cuali %>% tabyl(VOTO_CANDIDATO, SEXO) %>% adorn_percentages('row')  %>% 
+  adorn_pct_formatting()
+```
